@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/setListFragment">
+
+    <fragment
+        android:id="@+id/setListFragment"
+        android:name="com.ahmad.mvvm_pokemontcg.setlist.SetListFragment"
+        android:label="fragment_set_list">
+        <action
+            android:id="@+id/action_setListFragment_to_pokemonListFragment2"
+            app:destination="@id/pokemonListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pokemonListFragment"
+        android:name="com.ahmad.mvvm_pokemontcg.pokemonlist.PokemonListFragment"
+        android:label="fragment_pokemon_list"
+        tools:layout="@layout/fragment_pokemon_list">
+        <action
+            android:id="@+id/action_pokemonListFragment_to_pokemonCardDetailFragment"
+            app:destination="@id/pokemonCardDetailFragment" />
+        <argument
+            android:name="sibapak"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/pokemonCardDetailFragment"
+        android:name="com.ahmad.mvvm_pokemontcg.detail.PokemonCardDetailFragment"
+        android:label="fragment_pokemon_card_detail">
+        <argument
+            android:name="title"
+            android:defaultValue="null"
+            app:argType="string" />
+        <argument
+            android:name="pokemonCard"
+            app:argType="com.ahmad.mvvm_pokemontcg.model.PokemonCard" />
+    </fragment>
+</navigation>
